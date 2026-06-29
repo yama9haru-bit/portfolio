@@ -1,0 +1,96 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects } from '../data/projects';
+
+const categories = [
+  'AIプロダクト開発',
+  'AIエージェント基盤構築',
+  '競合調査・市場分析レポート',
+  'AIエンジニアリング基盤設計',
+  'AIスキル・ツール設計',
+  'コンテンツ自動化パイプライン',
+  'AI-driven ビジネス構築',
+];
+
+const valueProps = [
+  '業務自動化パイプラインの設計・構築・運用',
+  'AIエージェントのプロダクト組み込み',
+  '競合調査・市場分析によるDX戦略立案',
+  'コンテンツ生成・配信の全自動化',
+  'SaaS社内AI-DX（議事録インサイト抽出、リマインダーボット等）',
+  'AI-native営業システム（企画立案→相談→受注まで運用中）',
+];
+
+const projectsByCategory = categories.map((cat) => ({
+  category: cat,
+  items: projects.filter((p) => p.category === cat),
+}));
+---
+
+<Base>
+  <section class="value-section">
+    <h2>提供できる価値</h2>
+    <ul>
+      {valueProps.map((v) => <li>{v}</li>)}
+    </ul>
+  </section>
+
+  {projectsByCategory.map(({ category, items }) => (
+    <section class="category-section">
+      <h2>{category}</h2>
+      <div class="project-grid">
+        {items.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </section>
+  ))}
+</Base>
+
+<style>
+  .value-section {
+    margin-bottom: 3rem;
+  }
+
+  .value-section h2 {
+    font-size: 1.3rem;
+    color: var(--color-title, #1a1a1a);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .value-section ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+  }
+
+  .value-section li {
+    font-size: 1rem;
+    color: var(--color-body, #444);
+    margin-bottom: 0.5rem;
+  }
+
+  .category-section {
+    margin-bottom: 3rem;
+  }
+
+  .category-section h2 {
+    font-size: 1.3rem;
+    color: var(--color-title, #1a1a1a);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-accent, #1b5faa);
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

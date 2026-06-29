@@ -1,0 +1,107 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = 'Haruto Yamao - AI × Automation Engineer' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <h1>Haruto Yamao</h1>
+        <p class="tagline">AI × Automation Engineer</p>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <p>&copy; {new Date().getFullYear()} Haruto Yamao. All rights reserved.</p>
+    </footer>
+
+    <style>
+      :root {
+        --color-title: #1a1a1a;
+        --color-body: #444;
+        --color-accent: #1b5faa;
+        --color-muted: #666;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 16px;
+      }
+
+      body {
+        font-family: 'Noto Sans JP', sans-serif;
+        background: #ffffff;
+        color: var(--color-body);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      header {
+        border-bottom: 1px solid #e8e8e8;
+        padding: 2rem 0;
+      }
+
+      .header-inner {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      header h1 {
+        font-size: 1.75rem;
+        color: var(--color-title);
+        font-weight: 700;
+      }
+
+      .tagline {
+        font-size: 1rem;
+        color: var(--color-accent);
+        font-weight: 500;
+        margin-top: 0.25rem;
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+      }
+
+      footer {
+        border-top: 1px solid #e8e8e8;
+        padding: 1.5rem 0;
+        text-align: center;
+      }
+
+      footer p {
+        font-size: 0.85rem;
+        color: var(--color-muted);
+      }
+    </style>
+  </body>
+</html>
