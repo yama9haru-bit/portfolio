@@ -1,0 +1,158 @@
+---
+import Base from '../layouts/Base.astro';
+
+const profile = [
+  { label: '名前', value: 'Haruto Yamao' },
+  { label: '所属', value: '京都大学 総合人間学部 2年' },
+  { label: 'コミュニティ', value: 'AHEAD（京大AI学生コミュニティ）代表（約20名）' },
+  {
+    label: 'インターン',
+    value:
+      'RightTouch（AIワークフロー自動化）インターン — SaaS社内AI-DX担当（議事録インサイト抽出、リマインダーボット等の幅広い自動化を担当）',
+  },
+  { label: 'ストレングスファインダー', value: '活発性・自己確信・未来志向・着想・社交性' },
+  {
+    label: '営業活動',
+    value:
+      'AI-nativeに実施中。アイデア発掘から企画立案、顧客相談、受注までのプロセスをシステム化して運用中',
+  },
+];
+
+const skills = [
+  { field: 'AI/ML', skills: 'Whisper, EasyOCR, LLM API, RAG, Agent SDK, MCP' },
+  { field: 'プログラミング', skills: 'Python, TypeScript, JavaScript, Bash' },
+  { field: 'フレームワーク', skills: 'Next.js, Streamlit, Astro, Remotion' },
+  {
+    field: 'インフラ/ツール',
+    skills: 'Hermes Agent, Claude Code, Codex, Firebase, launchd, cron',
+  },
+  {
+    field: 'AI運用',
+    skills: 'Prompt Design, Skill Engineering, Context Management',
+  },
+  {
+    field: 'ビジネス',
+    skills: '市場調査, 競合分析, 業務分析, 提案書作成',
+  },
+];
+---
+
+<Base title="About - Haruto Yamao">
+  <section class="profile-section">
+    <h2>プロフィール</h2>
+    <dl>
+      {profile.map((item) => (
+        <div class="profile-row">
+          <dt>{item.label}</dt>
+          <dd>{item.value}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <section class="skills-section">
+    <h2>スキルマトリクス</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>分野</th>
+          <th>スキル</th>
+        </tr>
+      </thead>
+      <tbody>
+        {skills.map((row) => (
+          <tr>
+            <td class="skill-field">{row.field}</td>
+            <td class="skill-list">{row.skills}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </section>
+</Base>
+
+<style>
+  .profile-section {
+    margin-bottom: 3rem;
+  }
+
+  .profile-section h2,
+  .skills-section h2 {
+    font-size: 1.3rem;
+    color: var(--color-title, #1a1a1a);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-accent, #1b5faa);
+  }
+
+  .profile-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    align-items: baseline;
+  }
+
+  .profile-row dt {
+    font-weight: 700;
+    color: var(--color-title, #1a1a1a);
+    min-width: 140px;
+    flex-shrink: 0;
+    font-size: 0.95rem;
+  }
+
+  .profile-row dd {
+    color: var(--color-body, #444);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .skills-section {
+    margin-bottom: 3rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e8e8e8;
+    font-size: 0.95rem;
+  }
+
+  th {
+    color: var(--color-title, #1a1a1a);
+    font-weight: 700;
+    background: #f9f9f9;
+  }
+
+  .skill-field {
+    color: var(--color-title, #1a1a1a);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .skill-list {
+    color: var(--color-body, #444);
+  }
+
+  @media (max-width: 640px) {
+    .profile-row {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .profile-row dt {
+      min-width: 0;
+    }
+
+    th,
+    td {
+      padding: 0.5rem 0.75rem;
+    }
+  }
+</style>

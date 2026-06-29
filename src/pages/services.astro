@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+
+const services = [
+  '業務自動化パイプライン設計・構築（Square連携、経費精算、経営会議資料自動化等）',
+  'AIエージェント組み込み開発（OpenAI Agents SDK, MCP, Next.js）',
+  '競合調査・市場分析レポート作成',
+  'コンテンツ自動化（WordPress, Notion, SNS収集→HTML配信）',
+  'SaaS社内AI-DX（議事録インサイト抽出、リマインダーボット、業務フロー自動化等）',
+  'AI活用支援・コスト最適化相談',
+  'AI-native営業システム構築支援（企画立案→相談→受注までのプロセスをAIで自動化）',
+];
+---
+
+<Base title="Services - Haruto Yamao">
+  <section class="services-section">
+    <h2>提供できるサービス</h2>
+    <ol>
+      {services.map((service) => (
+        <li>{service}</li>
+      ))}
+    </ol>
+  </section>
+</Base>
+
+<style>
+  .services-section {
+    margin-bottom: 3rem;
+  }
+
+  .services-section h2 {
+    font-size: 1.3rem;
+    color: var(--color-title, #1a1a1a);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-accent, #1b5faa);
+  }
+
+  ol {
+    list-style: decimal;
+    padding-left: 1.5rem;
+  }
+
+  li {
+    font-size: 1rem;
+    color: var(--color-body, #444);
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+  }
+</style>

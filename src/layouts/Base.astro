@@ -25,6 +25,11 @@ const { title = 'Haruto Yamao - AI × Automation Engineer' } = Astro.props;
       <div class="header-inner">
         <h1>Haruto Yamao</h1>
         <p class="tagline">AI × Automation Engineer</p>
+        <nav class="header-nav">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/services">Services</a>
+        </nav>
       </div>
     </header>
 
@@ -84,6 +89,23 @@ const { title = 'Haruto Yamao - AI × Automation Engineer' } = Astro.props;
         color: var(--color-accent);
         font-weight: 500;
         margin-top: 0.25rem;
+      }
+
+      .header-nav {
+        margin-top: 0.75rem;
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .header-nav a {
+        font-size: 0.9rem;
+        color: var(--color-muted);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .header-nav a:hover {
+        color: var(--color-accent);
       }
 
       main {
