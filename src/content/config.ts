@@ -1,10 +1,20 @@
 import { defineCollection, z } from 'astro:content';
 
+const projectCategories = [
+  'AIプロダクト開発',
+  'AIエージェント基盤構築',
+  '競合調査・市場分析レポート',
+  'AIエンジニアリング基盤設計',
+  'AIスキル・ツール設計',
+  'コンテンツ自動化パイプライン',
+  'AI-driven ビジネス構築',
+] as const;
+
 const projects = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    category: z.string(),
+    category: z.enum(projectCategories),
     date: z.string(),
     techStack: z.array(z.string()),
     description: z.string(),
