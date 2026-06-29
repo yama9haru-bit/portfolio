@@ -1,6 +1,19 @@
 import { describe, it, expect } from 'vitest';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { join } from 'node:path';
 import { projects, type Project } from '../src/data/projects';
 import { categorySlugs, categories, slugToCategory } from '../src/data/categories';
+
+const repoRoot = process.cwd();
+
+function walkFiles(dir: string): string[] {
+  if (!existsSync(dir)) return [];
+
+  return readdirSync(dir).flatMap((entry) => {
+    const path = join(dir, entry);
+    return statSync(path).isDirectory() ? walkFiles(path) : [path];
+  });
+}
 
 describe('category slugs', () => {
   it('should have exactly 7 category slugs', () => {
@@ -54,5 +67,24 @@ describe('project routing', () => {
     for (const p of projects) {
       expect(categorySlugs).toHaveProperty(p.category);
     }
+  });
+});
+
+describe('public source content', () => {
+  it('does not expose private company or client names in public pages/content', () => {
+    const files = [join(repoRoot, 'src/pages'), join(repoRoot, 'src/content')].flatMap(walkFiles);
+
+    for (const file of files) {
+      const content = readFileSync(file, 'utf8');
+      expect(content).not.toMatch(/RightTouch|プロモツール/);
+    }
+  });
+
+  it('uses portfolio-base-aware header navigation links', () => {
+    const baseLayout = readFileSync(join(repoRoot, 'src/layouts/Base.astro'), 'utf8');
+
+    expect(baseLayout).not.toContain('href="/"');
+    expect(baseLayout).not.toContain('href="/about"');
+    expect(baseLayout).not.toContain('href="/services"');
   });
 });
