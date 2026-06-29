@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   title?: string;
 }
@@ -21,9 +23,9 @@ const { title = 'Haruto Yamao - AI × Automation Engineer' } = Astro.props;
     />
   </head>
   <body>
-    <header>
-      <div class="header-inner">
-        <h1>Haruto Yamao</h1>
+    <header class="site-header">
+      <div class="container header-inner">
+        <h1 class="site-name">Haruto Yamao</h1>
         <p class="tagline">AI × Automation Engineer</p>
         <nav class="header-nav">
           <a href="/">Home</a>
@@ -33,53 +35,30 @@ const { title = 'Haruto Yamao - AI × Automation Engineer' } = Astro.props;
       </div>
     </header>
 
-    <main>
+    <main class="container">
       <slot />
     </main>
 
-    <footer>
-      <p>&copy; {new Date().getFullYear()} Haruto Yamao. All rights reserved.</p>
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; {new Date().getFullYear()} Haruto Yamao. All rights reserved.</p>
+      </div>
     </footer>
 
     <style>
-      :root {
-        --color-title: #1a1a1a;
-        --color-body: #444;
-        --color-accent: #1b5faa;
-        --color-muted: #666;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      html {
-        font-size: 16px;
-      }
-
-      body {
-        font-family: 'Noto Sans JP', sans-serif;
-        background: #ffffff;
-        color: var(--color-body);
-        line-height: 1.7;
-        -webkit-font-smoothing: antialiased;
-      }
-
-      header {
-        border-bottom: 1px solid #e8e8e8;
-        padding: 2rem 0;
+      .site-header {
+        border-bottom: 1px solid var(--color-border);
+        padding-top: 0;
+        padding-bottom: 0;
       }
 
       .header-inner {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
       }
 
-      header h1 {
-        font-size: 1.75rem;
+      .site-name {
+        font-size: 1.8rem;
         color: var(--color-title);
         font-weight: 700;
       }
@@ -106,23 +85,24 @@ const { title = 'Haruto Yamao - AI × Automation Engineer' } = Astro.props;
 
       .header-nav a:hover {
         color: var(--color-accent);
+        text-decoration: underline;
       }
 
-      main {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 2rem 1.5rem;
+      .site-footer {
+        border-top: 1px solid var(--color-border);
+        padding-top: 0;
+        padding-bottom: 0;
       }
 
-      footer {
-        border-top: 1px solid #e8e8e8;
-        padding: 1.5rem 0;
-        text-align: center;
+      .site-footer .container {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
       }
 
-      footer p {
+      .site-footer p {
         font-size: 0.85rem;
         color: var(--color-muted);
+        text-align: center;
       }
     </style>
   </body>

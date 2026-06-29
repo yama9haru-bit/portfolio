@@ -2,12 +2,12 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import CategoryNav from '../../components/CategoryNav.astro';
-import { categories, categorySlugs, getCategorySlug } from '../../data/categories';
+import { getCategorySlug } from '../../data/categories';
 
 export async function getStaticPaths() {
   const entries = await getCollection('projects');
   return entries.map((entry) => ({
-    params: { id: entry.id },
+    params: { id: entry.id.replace(/\.md$/, '') },
     props: { entry },
   }));
 }

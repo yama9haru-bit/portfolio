@@ -11,22 +11,21 @@ const detailUrl = `/portfolio/projects/${project.slug}`;
 
 <a href={detailUrl} class="card-link">
   <article class="project-card">
-    <div class="card-header">
-      <span class="card-id">{project.id}</span>
-      <h3 class="card-title">{project.title}</h3>
-    </div>
+    <h3 class="card-title">{project.id} — {project.title}</h3>
     <p class="card-description">{project.description}</p>
     <p class="card-client-value">
-      <span class="label">提供価値</span>
+      <span class="label">提供価値:</span>
       {project.clientValue}
     </p>
-    {project.outcome && <p class="card-outcome"><span class="label">成果</span>{project.outcome}</p>}
+    {project.outcome && (
+      <p class="card-outcome"><span class="label">成果:</span>{project.outcome}</p>
+    )}
     <ul class="card-highlights">
       {project.highlights.map((h) => <li>{h}</li>)}
     </ul>
-    <div class="card-techstack">
-      {project.techStack.map((t) => <span class="tech-badge">{t}</span>)}
-    </div>
+    <p class="card-techstack">
+      {project.techStack.map((t) => <span class="tech-item">{t}</span>)}
+    </p>
     <p class="card-date">{project.date}</p>
   </article>
 </a>
@@ -38,62 +37,46 @@ const detailUrl = `/portfolio/projects/${project.slug}`;
   }
 
   .project-card {
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
     padding: 1.5rem;
-    background: #fff;
-    transition: border-color 0.2s;
+    background: var(--color-bg);
   }
 
   .project-card:hover {
-    border-color: #1b5faa;
-  }
-
-  .card-header {
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .card-id {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: #1b5faa;
-    background: rgba(27, 95, 170, 0.08);
-    padding: 0.15rem 0.5rem;
-    border-radius: 3px;
-    flex-shrink: 0;
+    border-color: var(--color-accent);
   }
 
   .card-title {
     font-size: 1.1rem;
-    color: #1a1a1a;
+    color: var(--color-title);
     font-weight: 700;
     line-height: 1.4;
+    margin-bottom: 0.5rem;
   }
 
   .card-description {
     font-size: 0.95rem;
-    color: #444;
+    color: var(--color-body);
     margin-bottom: 0.75rem;
   }
 
   .card-client-value {
     font-size: 0.9rem;
-    color: #666;
+    color: var(--color-body);
     margin-bottom: 0.5rem;
   }
 
   .card-outcome {
     font-size: 0.9rem;
-    color: #1b5faa;
+    color: var(--color-accent);
     margin-bottom: 0.5rem;
   }
 
   .label {
     font-weight: 500;
     margin-right: 0.4rem;
+    color: var(--color-muted);
   }
 
   .card-highlights {
@@ -104,7 +87,7 @@ const detailUrl = `/portfolio/projects/${project.slug}`;
 
   .card-highlights li {
     font-size: 0.9rem;
-    color: #444;
+    color: var(--color-body);
     margin-bottom: 0.25rem;
   }
 
@@ -115,17 +98,17 @@ const detailUrl = `/portfolio/projects/${project.slug}`;
     margin: 0.75rem 0;
   }
 
-  .tech-badge {
+  .tech-item {
     font-size: 0.8rem;
-    color: #666;
-    background: #f4f4f4;
-    padding: 0.2rem 0.6rem;
+    color: var(--color-muted);
+    border: 1px solid var(--color-border);
+    padding: 0.15rem 0.5rem;
     border-radius: 3px;
   }
 
   .card-date {
     font-size: 0.8rem;
-    color: #666;
+    color: var(--color-muted);
     margin-top: 0.5rem;
   }
 </style>

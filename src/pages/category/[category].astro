@@ -23,6 +23,7 @@ const filtered = entries
 function toProject(entry: CollectionEntry<'projects'>): Project {
   return {
     id: entry.id,
+    slug: entry.id,
     title: entry.data.title,
     category: entry.data.category,
     date: entry.data.date,
