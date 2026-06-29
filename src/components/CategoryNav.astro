@@ -1,0 +1,67 @@
+---
+import { categories, categorySlugs } from '../data/categories';
+
+interface Props {
+  activeCategory?: string;
+}
+
+const { activeCategory } = Astro.props;
+---
+
+<nav class="category-nav">
+  <ul>
+    {categories.map((cat) => (
+      <li>
+        <a
+          href={`/portfolio/category/${categorySlugs[cat]}`}
+          class={activeCategory === cat ? 'active' : ''}
+        >
+          {cat}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  .category-nav {
+    margin-bottom: 2rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .category-nav ul {
+    display: flex;
+    gap: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid #e8e8e8;
+    flex-wrap: wrap;
+  }
+
+  .category-nav li {
+    flex-shrink: 0;
+  }
+
+  .category-nav a {
+    display: block;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    color: #666;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .category-nav a:hover {
+    color: #1b5faa;
+  }
+
+  .category-nav a.active {
+    color: #1b5faa;
+    border-bottom-color: #1b5faa;
+    font-weight: 500;
+  }
+</style>

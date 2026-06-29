@@ -6,29 +6,37 @@ interface Props {
 }
 
 const { project } = Astro.props;
+const detailUrl = `/portfolio/projects/${project.slug}`;
 ---
 
-<article class="project-card">
-  <div class="card-header">
-    <span class="card-id">{project.id}</span>
-    <h3 class="card-title">{project.title}</h3>
-  </div>
-  <p class="card-description">{project.description}</p>
-  <p class="card-client-value">
-    <span class="label">提供価値</span>
-    {project.clientValue}
-  </p>
-  {project.outcome && <p class="card-outcome"><span class="label">成果</span>{project.outcome}</p>}
-  <ul class="card-highlights">
-    {project.highlights.map((h) => <li>{h}</li>)}
-  </ul>
-  <div class="card-techstack">
-    {project.techStack.map((t) => <span class="tech-badge">{t}</span>)}
-  </div>
-  <p class="card-date">{project.date}</p>
-</article>
+<a href={detailUrl} class="card-link">
+  <article class="project-card">
+    <div class="card-header">
+      <span class="card-id">{project.id}</span>
+      <h3 class="card-title">{project.title}</h3>
+    </div>
+    <p class="card-description">{project.description}</p>
+    <p class="card-client-value">
+      <span class="label">提供価値</span>
+      {project.clientValue}
+    </p>
+    {project.outcome && <p class="card-outcome"><span class="label">成果</span>{project.outcome}</p>}
+    <ul class="card-highlights">
+      {project.highlights.map((h) => <li>{h}</li>)}
+    </ul>
+    <div class="card-techstack">
+      {project.techStack.map((t) => <span class="tech-badge">{t}</span>)}
+    </div>
+    <p class="card-date">{project.date}</p>
+  </article>
+</a>
 
 <style>
+  .card-link {
+    text-decoration: none;
+    display: block;
+  }
+
   .project-card {
     border: 1px solid #e0e0e0;
     border-radius: 6px;
@@ -38,7 +46,7 @@ const { project } = Astro.props;
   }
 
   .project-card:hover {
-    border-color: var(--color-accent, #1b5faa);
+    border-color: #1b5faa;
   }
 
   .card-header {
@@ -51,7 +59,7 @@ const { project } = Astro.props;
   .card-id {
     font-size: 0.8rem;
     font-weight: 700;
-    color: var(--color-accent, #1b5faa);
+    color: #1b5faa;
     background: rgba(27, 95, 170, 0.08);
     padding: 0.15rem 0.5rem;
     border-radius: 3px;
@@ -60,26 +68,26 @@ const { project } = Astro.props;
 
   .card-title {
     font-size: 1.1rem;
-    color: var(--color-title, #1a1a1a);
+    color: #1a1a1a;
     font-weight: 700;
     line-height: 1.4;
   }
 
   .card-description {
     font-size: 0.95rem;
-    color: var(--color-body, #444);
+    color: #444;
     margin-bottom: 0.75rem;
   }
 
   .card-client-value {
     font-size: 0.9rem;
-    color: var(--color-muted, #666);
+    color: #666;
     margin-bottom: 0.5rem;
   }
 
   .card-outcome {
     font-size: 0.9rem;
-    color: var(--color-accent, #1b5faa);
+    color: #1b5faa;
     margin-bottom: 0.5rem;
   }
 
@@ -96,7 +104,7 @@ const { project } = Astro.props;
 
   .card-highlights li {
     font-size: 0.9rem;
-    color: var(--color-body, #444);
+    color: #444;
     margin-bottom: 0.25rem;
   }
 
@@ -109,7 +117,7 @@ const { project } = Astro.props;
 
   .tech-badge {
     font-size: 0.8rem;
-    color: var(--color-muted, #666);
+    color: #666;
     background: #f4f4f4;
     padding: 0.2rem 0.6rem;
     border-radius: 3px;
@@ -117,7 +125,7 @@ const { project } = Astro.props;
 
   .card-date {
     font-size: 0.8rem;
-    color: var(--color-muted, #666);
+    color: #666;
     margin-top: 0.5rem;
   }
 </style>

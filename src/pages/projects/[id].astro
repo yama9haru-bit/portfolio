@@ -1,0 +1,241 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import CategoryNav from '../../components/CategoryNav.astro';
+import { categories, categorySlugs, getCategorySlug } from '../../data/categories';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('projects');
+  return entries.map((entry) => ({
+    params: { id: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const data = entry.data;
+const categorySlug = getCategorySlug(data.category);
+---
+
+<Base title={`${data.title} - Haruto Yamao`}>
+  <CategoryNav activeCategory={data.category} />
+
+  <article class="project-detail">
+    <a href={`/portfolio/category/${categorySlug}`} class="back-link">← {data.category}</a>
+
+    <h1 class="project-title">{data.title}</h1>
+
+    <div class="project-meta">
+      <span class="meta-badge category-badge">{data.category}</span>
+      <span class="meta-badge date-badge">{data.date}</span>
+    </div>
+
+    <p class="project-description">{data.description}</p>
+
+    <section class="detail-section">
+      <h2>提供価値</h2>
+      <p>{data.clientValue}</p>
+    </section>
+
+    {data.outcome && (
+      <section class="detail-section">
+        <h2>成果</h2>
+        <p class="outcome-text">{data.outcome}</p>
+      </section>
+    )}
+
+    <section class="detail-section">
+      <h2>ハイライト</h2>
+      <ul class="highlights-list">
+        {data.highlights.map((h) => <li>{h}</li>)}
+      </ul>
+    </section>
+
+    <section class="detail-section">
+      <h2>技術スタック</h2>
+      <div class="tech-stack">
+        {data.techStack.map((t) => <span class="tech-badge">{t}</span>)}
+      </div>
+    </section>
+
+    <hr class="separator" />
+
+    <div class="markdown-content">
+      <Content />
+    </div>
+  </article>
+</Base>
+
+<style>
+  .project-detail {
+    max-width: 100%;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: #1b5faa;
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+
+  .project-title {
+    font-size: 1.6rem;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .meta-badge {
+    font-size: 0.85rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+  }
+
+  .category-badge {
+    background: rgba(27, 95, 170, 0.08);
+    color: #1b5faa;
+    font-weight: 500;
+  }
+
+  .date-badge {
+    background: #f4f4f4;
+    color: #666;
+  }
+
+  .project-description {
+    font-size: 1.05rem;
+    color: #444;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .detail-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .detail-section h2 {
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .detail-section p {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.7;
+  }
+
+  .outcome-text {
+    color: #1b5faa !important;
+  }
+
+  .highlights-list {
+    list-style: disc;
+    padding-left: 1.5rem;
+  }
+
+  .highlights-list li {
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 0.3rem;
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tech-badge {
+    font-size: 0.8rem;
+    color: #666;
+    background: #f4f4f4;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+  }
+
+  .separator {
+    border: none;
+    border-top: 1px solid #e8e8e8;
+    margin: 2rem 0;
+  }
+
+  .markdown-content {
+    color: #444;
+    line-height: 1.7;
+  }
+
+  .markdown-content :global(h2) {
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .markdown-content :global(h3) {
+    font-size: 1.05rem;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .markdown-content :global(p) {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .markdown-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+
+  .markdown-content :global(th),
+  .markdown-content :global(td) {
+    border: 1px solid #e0e0e0;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  .markdown-content :global(th) {
+    background: #f8f8f8;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+
+  .markdown-content :global(code) {
+    font-size: 0.85rem;
+    background: #f4f4f4;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+  }
+
+  .markdown-content :global(ul) {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .markdown-content :global(li) {
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+  }
+</style>

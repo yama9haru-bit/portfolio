@@ -1,0 +1,72 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import CategoryNav from '../../components/CategoryNav.astro';
+import { categories, categorySlugs, slugToCategory } from '../../data/categories';
+import type { Project } from '../../data/projects';
+
+export async function getStaticPaths() {
+  return categories.map((cat) => ({
+    params: { category: categorySlugs[cat] },
+  }));
+}
+
+const { category: slug } = Astro.params;
+const category = slugToCategory[slug!] ?? slug!;
+
+const entries = await getCollection('projects');
+const filtered = entries
+  .filter((entry) => entry.data.category === category)
+  .sort((a, b) => a.data.order - b.data.order);
+
+function toProject(entry: CollectionEntry<'projects'>): Project {
+  return {
+    id: entry.id,
+    title: entry.data.title,
+    category: entry.data.category,
+    date: entry.data.date,
+    techStack: entry.data.techStack,
+    description: entry.data.description,
+    clientValue: entry.data.clientValue,
+    highlights: entry.data.highlights,
+    outcome: entry.data.outcome,
+  };
+}
+---
+
+<Base title={`${category} - Haruto Yamao`}>
+  <CategoryNav activeCategory={category} />
+
+  <section>
+    <h2 class="category-title">{category}</h2>
+    <div class="project-grid">
+      {filtered.map((entry) => (
+        <ProjectCard project={toProject(entry)} />
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .category-title {
+    font-size: 1.3rem;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #1b5faa;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
