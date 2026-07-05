@@ -38,6 +38,14 @@ const skills = [
 ---
 
 <Base title="About - Haruto Yamao">
+  <section class="intro-section">
+    <h2 class="intro-name">Haruto Yamao / 山尾陽飛</h2>
+    <p class="intro-tagline">
+      AIエージェント・自動化を軸に、business領域含め幅広く手を動かすAI × Automation Engineer。
+      名刺代わりの詳しいプロフィールは<a href="https://portfolio-site-beta-pink-87.vercel.app" target="_blank" rel="noopener noreferrer">こちら</a>。
+    </p>
+  </section>
+
   <section class="profile-section">
     <h2>プロフィール</h2>
     <dl>
@@ -72,6 +80,28 @@ const skills = [
 </Base>
 
 <style>
+  .intro-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .intro-name {
+    font-size: 1.5rem;
+    color: var(--color-title, #1a1a1a);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .intro-tagline {
+    font-size: 0.95rem;
+    color: var(--color-body, #444);
+    line-height: 1.6;
+  }
+
+  .intro-tagline a {
+    color: var(--color-accent, #1b5faa);
+    font-weight: 500;
+  }
+
   .profile-section {
     margin-bottom: 3rem;
   }

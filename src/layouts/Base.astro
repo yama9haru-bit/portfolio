@@ -31,6 +31,7 @@ const { title = 'Haruto Yamao - AI × Automation Engineer' } = Astro.props;
           <a href="/portfolio/">Home</a>
           <a href="/portfolio/about">About</a>
           <a href="/portfolio/services">Services</a>
+          <a href="https://portfolio-site-beta-pink-87.vercel.app" target="_blank" rel="noopener noreferrer">Profile</a>
         </nav>
       </div>
     </header>
@@ -41,6 +42,11 @@ const { title = 'Haruto Yamao - AI × Automation Engineer' } = Astro.props;
 
     <footer class="site-footer">
       <div class="container">
+        <nav class="footer-links">
+          <a href="https://portfolio-site-beta-pink-87.vercel.app" target="_blank" rel="noopener noreferrer">Profile / About the Author</a>
+          <a href="https://github.com/yama9haru-bit" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="mailto:yama9haru@gmail.com">Email</a>
+        </nav>
         <p>&copy; {new Date().getFullYear()} Haruto Yamao. All rights reserved.</p>
       </div>
     </footer>
@@ -97,6 +103,25 @@ const { title = 'Haruto Yamao - AI × Automation Engineer' } = Astro.props;
       .site-footer .container {
         padding-top: 1.5rem;
         padding-bottom: 1.5rem;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-links a {
+        font-size: 0.85rem;
+        color: var(--color-muted);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .footer-links a:hover {
+        color: var(--color-accent);
+        text-decoration: underline;
       }
 
       .site-footer p {
