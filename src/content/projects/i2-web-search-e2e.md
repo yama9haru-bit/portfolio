@@ -10,6 +10,7 @@ highlights:
   - "TDDによる品質担保"
   - "output-checker review完了"
 order: 5
+tier: "B"
 ---
 
 ## 解決した課題

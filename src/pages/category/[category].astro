@@ -32,6 +32,7 @@ function toProject(entry: CollectionEntry<'projects'>): Project {
     clientValue: entry.data.clientValue,
     highlights: entry.data.highlights,
     outcome: entry.data.outcome,
+    tier: entry.data.tier,
   };
 }
 ---
@@ -51,18 +52,18 @@ function toProject(entry: CollectionEntry<'projects'>): Project {
 
 <style>
   .category-title {
-    font-size: 1.3rem;
-    color: #1a1a1a;
+    font-size: var(--text-xl);
+    color: var(--color-title);
     font-weight: 700;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #1b5faa;
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
+    border-bottom: 2px solid var(--color-accent);
   }
 
   .project-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: var(--space-5);
   }
 
   @media (max-width: 768px) {

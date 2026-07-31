@@ -12,6 +12,7 @@ highlights:
   - "毎日運用中"
 outcome: "毎日運用中"
 order: 18
+tier: "S"
 ---
 
 ## 解決した課題

@@ -79,6 +79,29 @@ describe('projects data structure', () => {
     }
   });
 
+  it('each project should have a valid tier', () => {
+    for (const project of projects) {
+      expect(['S', 'A', 'B']).toContain(project.tier);
+    }
+  });
+
+  it('tier distribution should be exactly S=4, A=5, B=15', () => {
+    const count = (t: Project['tier']) => projects.filter((p) => p.tier === t).length;
+    expect(count('S')).toBe(4);
+    expect(count('A')).toBe(5);
+    expect(count('B')).toBe(15);
+  });
+
+  it('S-tier projects should be exactly the approved featured set', () => {
+    const sTier = projects.filter((p) => p.tier === 'S').map((p) => p.slug).sort();
+    expect(sTier).toEqual([
+      'b3-retail-dx-proposal',
+      'c1-morning-mentor',
+      'r1-ai-driven-business',
+      'r2-ai-native-sales-system',
+    ]);
+  });
+
   it('optional fields should be correct types when present', () => {
     for (const project of projects) {
       if (project.sourcePath !== undefined) {

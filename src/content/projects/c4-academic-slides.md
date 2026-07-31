@@ -10,6 +10,7 @@ highlights:
   - "Keynoteフォーマット対応"
   - "学術発表向け"
 order: 21
+tier: "B"
 ---
 
 ## 解決した課題

@@ -1,12 +1,69 @@
 :root {
+  /* colors (light base) */
   --color-title: #1A1A1A;
   --color-body: #444444;
   --color-accent: #1B5FAA;
+  --color-accent-strong: #14477F;
+  --color-accent-soft: rgba(27, 95, 170, 0.07);
   --color-critical: #8B0000;
   --color-muted: #666666;
   --color-bg: #FFFFFF;
+  --color-bg-elevated: #F8F9FB;
   --color-border: #E0E0E0;
+
+  /* fonts */
   --font-sans: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+  --font-display: 'Space Grotesk', 'Noto Sans JP', sans-serif;
+
+  /* spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* type scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.85rem;
+  --text-base: 1rem;
+  --text-lg: 1.15rem;
+  --text-xl: 1.35rem;
+  --text-2xl: clamp(1.5rem, 3vw, 1.8rem);
+  --text-3xl: clamp(1.9rem, 4vw, 2.5rem);
+  --text-4xl: clamp(2.4rem, 6vw, 3.4rem);
+
+  /* radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+
+  /* elevation */
+  --shadow-sm: 0 1px 3px rgba(16, 32, 54, 0.06);
+  --shadow-md: 0 4px 14px rgba(16, 32, 54, 0.1);
+  --shadow-lg: 0 10px 30px rgba(16, 32, 54, 0.14);
+
+  --transition-base: 180ms ease;
+}
+
+/* Dark token re-binding: applies only inside the hero subtree.
+   Same variable names, so components need no dark-specific branching. */
+.hero-dark {
+  --color-title: #F5F7FA;
+  --color-body: #C7CDD6;
+  --color-muted: #8B94A3;
+  --color-accent: #5B9BD8;
+  --color-accent-strong: #7FB3E3;
+  --color-accent-soft: rgba(91, 155, 216, 0.14);
+  --color-bg: #0B0E14;
+  --color-bg-elevated: #151A24;
+  --color-border: rgba(255, 255, 255, 0.12);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 0 24px rgba(91, 155, 216, 0.18);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -27,4 +84,4 @@ h3 { font-size: 1.1rem; }
 a { color: var(--color-accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-.container { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem 1rem; }

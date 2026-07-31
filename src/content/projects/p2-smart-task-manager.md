@@ -10,6 +10,7 @@ highlights:
   - "StreamlitによるフルスタックMVP"
   - "SQLite3によるデータ永続化"
 order: 2
+tier: "B"
 ---
 
 ## 解決した課題

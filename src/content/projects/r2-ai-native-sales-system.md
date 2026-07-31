@@ -11,6 +11,7 @@ highlights:
   - "受注までの営業プロセスを可視化・運用中"
 outcome: "運用中"
 order: 24
+tier: "S"
 ---
 
 ## 解決した課題

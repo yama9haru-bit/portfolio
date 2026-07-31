@@ -10,6 +10,7 @@ highlights:
   - "利用可能モデル一覧"
   - "Hermes統合可能性の評価"
 order: 10
+tier: "B"
 ---
 
 ## 解決した課題

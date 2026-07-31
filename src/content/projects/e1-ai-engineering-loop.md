@@ -11,6 +11,7 @@ highlights:
   - "OpenHands Verification Stack参照"
 outcome: "401行の設計資料"
 order: 12
+tier: "A"
 ---
 
 ## 解決した課題

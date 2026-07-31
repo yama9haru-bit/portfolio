@@ -12,6 +12,7 @@ highlights:
   - "セキュリティ強化"
 outcome: "GitHubリポジトリ化済み"
 order: 3
+tier: "A"
 ---
 
 ## 解決した課題

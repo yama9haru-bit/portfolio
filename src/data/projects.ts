@@ -11,6 +11,7 @@ export interface Project {
   externalUrl?: string;
   highlights: string[];
   outcome?: string;
+  tier: 'S' | 'A' | 'B';
 }
 
 export const projects: Project[] = [
@@ -18,6 +19,7 @@ export const projects: Project[] = [
   {
     id: 'P1',
     slug: 'p1-voice-input',
+    tier: 'B',
     title: 'VoiceInput - macOS音声入力アプリ',
     category: 'AIプロダクト開発',
     description:
@@ -35,6 +37,7 @@ export const projects: Project[] = [
   {
     id: 'P2',
     slug: 'p2-smart-task-manager',
+    tier: 'B',
     title: 'Smart Task Manager (AI搭載)',
     category: 'AIプロダクト開発',
     description: 'Web+DB+AI(OCR)を統合したMVPタスク管理アプリ',
@@ -50,6 +53,7 @@ export const projects: Project[] = [
   {
     id: 'P3',
     slug: 'p3-agent-sdk-app',
+    tier: 'A',
     title: 'Agent SDK App (OpenAI Agents SDK × Next.js)',
     category: 'AIプロダクト開発',
     description:
@@ -71,6 +75,7 @@ export const projects: Project[] = [
   {
     id: 'I1',
     slug: 'i1-ollama-cloud-hermes',
+    tier: 'B',
     title: 'Ollama Cloud × Hermes 統合（35モデル利用環境構築）',
     category: 'AIエージェント基盤構築',
     description:
@@ -88,6 +93,7 @@ export const projects: Project[] = [
   {
     id: 'I2',
     slug: 'i2-web-search-e2e',
+    tier: 'B',
     title: '実Web検索プラグイン E2E実装',
     category: 'AIエージェント基盤構築',
     description: 'DDGSバックエンドによる実Web検索プラグインのTDD実装',
@@ -103,6 +109,7 @@ export const projects: Project[] = [
   {
     id: 'I3',
     slug: 'i3-ai-cost-visualization',
+    tier: 'B',
     title: 'AIコスト可視化・分析システム',
     category: 'AIエージェント基盤構築',
     description: 'AI利用のtoken/コストをモデル別に可視化',
@@ -119,6 +126,7 @@ export const projects: Project[] = [
   {
     id: 'I4',
     slug: 'i4-macmini-auto-recover',
+    tier: 'B',
     title: 'Mac mini自動復旧・監視システム',
     category: 'AIエージェント基盤構築',
     description: 'Hermes稼働Mac miniの自動復旧launchdエージェント',
@@ -130,6 +138,7 @@ export const projects: Project[] = [
   {
     id: 'I5',
     slug: 'i5-agent-safety-guards',
+    tier: 'B',
     title: 'エージェント安全ガード（削除・外部書き込み保護）',
     category: 'AIエージェント基盤構築',
     description: 'AIエージェントの暴走を機械的に防ぐガードレール',
@@ -147,6 +156,7 @@ export const projects: Project[] = [
   {
     id: 'B1',
     slug: 'b1-ai-agent-connector-research',
+    tier: 'A',
     title: '日本企業向けAIエージェント接続インフラ 競合調査レポート',
     category: '競合調査・市場分析レポート',
     description:
@@ -165,6 +175,7 @@ export const projects: Project[] = [
   {
     id: 'B2',
     slug: 'b2-ai-coding-service-comparison',
+    tier: 'B',
     title: 'AIコーディングサービス比較調査',
     category: '競合調査・市場分析レポート',
     description: 'Ollama Cloud Pro vs Devin CLI Proの価格・性能・統合性比較',
@@ -180,6 +191,7 @@ export const projects: Project[] = [
   {
     id: 'B3',
     slug: 'b3-retail-dx-proposal',
+    tier: 'S',
     title: '小売・製造系企業向け DX自動化提案',
     category: '競合調査・市場分析レポート',
     description:
@@ -201,6 +213,7 @@ export const projects: Project[] = [
   {
     id: 'E1',
     slug: 'e1-ai-engineering-loop',
+    tier: 'A',
     title: 'AI Engineering Loop設計資料',
     category: 'AIエンジニアリング基盤設計',
     description: 'Plan→Implement→Verify→Shipの4層エンジニアリングパイプライン設計',
@@ -218,6 +231,7 @@ export const projects: Project[] = [
   {
     id: 'E2',
     slug: 'e2-agent-sdk-firebase-guide',
+    tier: 'A',
     title: 'Agent SDK × Firebase実装ガイド',
     category: 'AIエンジニアリング基盤設計',
     description: 'AIエージェント×クラウドDBの実装ガイド',
@@ -234,6 +248,7 @@ export const projects: Project[] = [
   {
     id: 'E3',
     slug: 'e3-claude-codex-operations',
+    tier: 'B',
     title: 'Claude Code × Codex 並行運用設計',
     category: 'AIエンジニアリング基盤設計',
     description: '2つのAI CLIを並行運用する体制設計',
@@ -251,6 +266,7 @@ export const projects: Project[] = [
   {
     id: 'S1',
     slug: 's1-supermovie-pipeline',
+    tier: 'B',
     title: 'AI動画編集パイプライン設計（SuperMovie構想）',
     category: 'AIスキル・ツール設計',
     description: '8スキル直列のAI動画編集パイプライン設計',
@@ -266,6 +282,7 @@ export const projects: Project[] = [
   {
     id: 'S2',
     slug: 's2-ai-learning-system',
+    tier: 'B',
     title: 'AI対話型学習システム設計（三想法メソッド）',
     category: 'AIスキル・ツール設計',
     description: 'AI対話型学習のルーティンをプロンプト設計',
@@ -281,6 +298,7 @@ export const projects: Project[] = [
   {
     id: 'S3',
     slug: 's3-custom-ai-skills',
+    tier: 'B',
     title: '自作AI CLIスキル群（15+スキル）',
     category: 'AIスキル・ツール設計',
     description: '週次メンターや音声→Obsidian、株価分析など15以上のAIツールを自作',
@@ -304,6 +322,7 @@ export const projects: Project[] = [
   {
     id: 'C1',
     slug: 'c1-morning-mentor',
+    tier: 'S',
     title: 'Morning Mentor（X自動収集→HTML→Gmail毎日配信）',
     category: 'コンテンツ自動化パイプライン',
     description:
@@ -317,6 +336,7 @@ export const projects: Project[] = [
   {
     id: 'C2',
     slug: 'c2-wordpress-automation',
+    tier: 'B',
     title: 'WordPress自動投稿システム',
     category: 'コンテンツ自動化パイプライン',
     description: '記事HTML生成から画像アップロード・下書き保存まで全自動化',
@@ -332,6 +352,7 @@ export const projects: Project[] = [
   {
     id: 'C3',
     slug: 'c3-notion-export',
+    tier: 'B',
     title: 'Notion一括エクスポートパイプライン',
     category: 'コンテンツ自動化パイプライン',
     description: 'Notion DBからMarkdownへ一括エクスポート',
@@ -343,6 +364,7 @@ export const projects: Project[] = [
   {
     id: 'C4',
     slug: 'c4-academic-slides',
+    tier: 'B',
     title: '学術スライド自動生成',
     category: 'コンテンツ自動化パイプライン',
     description: 'テキストからプレゼン資料を自動生成',
@@ -354,6 +376,7 @@ export const projects: Project[] = [
   {
     id: 'C5',
     slug: 'c5-saas-internal-ai-dx',
+    tier: 'A',
     title: 'SaaS社内AI-DX自動化（会議後タスク整理・通知ボット等）',
     category: 'コンテンツ自動化パイプライン',
     description:
@@ -374,6 +397,7 @@ export const projects: Project[] = [
   {
     id: 'R1',
     slug: 'r1-ai-driven-business',
+    tier: 'S',
     title: 'AI-driven ビジネスアイデア発掘→醸成→売上化',
     category: 'AI-driven ビジネス構築',
     description:
@@ -392,6 +416,7 @@ export const projects: Project[] = [
   {
     id: 'R2',
     slug: 'r2-ai-native-sales-system',
+    tier: 'S',
     title: 'AI-native営業システム（企画立案→相談→受注プロセスを運用中）',
     category: 'AI-driven ビジネス構築',
     description:

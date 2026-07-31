@@ -1,0 +1,48 @@
+---
+interface Props {
+  value: string;
+  suffix?: string;
+  label: string;
+}
+
+const { value, suffix = '', label } = Astro.props;
+---
+
+<div class="stat-tile">
+  <p class="stat-number">
+    {value}<span class="stat-suffix">{suffix}</span>
+  </p>
+  <p class="stat-label">{label}</p>
+</div>
+
+<style>
+  .stat-tile {
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4) var(--space-5);
+    min-width: 130px;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--color-accent);
+    line-height: 1.2;
+  }
+
+  .stat-suffix {
+    font-size: 0.6em;
+    margin-left: 2px;
+  }
+
+  .stat-label {
+    font-size: var(--text-sm);
+    color: var(--color-body);
+    font-weight: 500;
+    margin-top: var(--space-1);
+  }
+</style>

@@ -11,6 +11,7 @@ highlights:
   - "反復業務フローの一部自動化"
 outcome: "運用中"
 order: 22
+tier: "A"
 ---
 
 ## 解決した課題

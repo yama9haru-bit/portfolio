@@ -87,4 +87,18 @@ describe('public source content', () => {
     expect(baseLayout).not.toContain('href="/about"');
     expect(baseLayout).not.toContain('href="/services"');
   });
+
+  it('all internal links in components/layouts start with /portfolio', () => {
+    const files = [join(repoRoot, 'src/components'), join(repoRoot, 'src/layouts')]
+      .flatMap(walkFiles)
+      .filter((f) => f.endsWith('.astro'));
+    expect(files.length).toBeGreaterThan(0);
+
+    for (const file of files) {
+      const content = readFileSync(file, 'utf8');
+      // root-relative hrefs must be base-path-aware; external/fragment/variable hrefs are fine
+      const badLinks = content.match(/href=("\/(?!portfolio)|\{`\/(?!portfolio))[^\s>]*/g);
+      expect(badLinks, `${file} has non-base-aware link: ${badLinks?.join(', ')}`).toBeNull();
+    }
+  });
 });

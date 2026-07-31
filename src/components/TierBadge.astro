@@ -1,0 +1,33 @@
+---
+interface Props {
+  tier: 'S' | 'A' | 'B';
+}
+
+const { tier } = Astro.props;
+---
+
+{tier === 'S' && <span class="tier-badge tier-s">★ 主要実績</span>}
+{tier === 'A' && <span class="tier-badge tier-a">成果あり</span>}
+
+<style>
+  .tier-badge {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    border-radius: var(--radius-pill);
+    padding: 0.15rem 0.7rem;
+    white-space: nowrap;
+    line-height: 1.6;
+  }
+
+  .tier-s {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  .tier-a {
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    background: var(--color-accent-soft);
+  }
+</style>

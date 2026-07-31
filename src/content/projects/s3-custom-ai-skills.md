@@ -16,6 +16,7 @@ highlights:
   - "price-hunter"
   - "n8n系5スキル等"
 order: 17
+tier: "B"
 ---
 
 ## 解決した課題

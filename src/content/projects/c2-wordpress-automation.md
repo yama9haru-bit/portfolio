@@ -10,6 +10,7 @@ highlights:
   - "Chrome UIプローブ連携"
   - "画像アップロード自動化"
 order: 19
+tier: "B"
 ---
 
 ## 解決した課題

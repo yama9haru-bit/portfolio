@@ -11,6 +11,7 @@ highlights:
   - "提案→受注の実績"
 outcome: "受注・売上化済み"
 order: 23
+tier: "S"
 ---
 
 ## 解決した課題

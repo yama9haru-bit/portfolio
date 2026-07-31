@@ -12,6 +12,7 @@ highlights:
   - "価格設計案の提示"
 outcome: "237行のビジネスレポート"
 order: 9
+tier: "A"
 ---
 
 ## 解決した課題

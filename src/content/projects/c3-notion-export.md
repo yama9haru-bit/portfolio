@@ -10,6 +10,7 @@ highlights:
   - "フィルタリング機能"
   - "Markdown一括変換"
 order: 20
+tier: "B"
 ---
 
 ## 解決した課題

@@ -22,6 +22,7 @@ const projects = defineCollection({
     highlights: z.array(z.string()),
     outcome: z.string().optional(),
     order: z.number(),
+    tier: z.enum(['S', 'A', 'B']),
   }),
 });
 

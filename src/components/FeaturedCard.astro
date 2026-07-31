@@ -1,0 +1,108 @@
+---
+import type { Project } from '../data/projects';
+import TierBadge from './TierBadge.astro';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const detailUrl = `/portfolio/projects/${project.slug}`;
+---
+
+<a href={detailUrl} class="featured-link">
+  <article class="featured-card">
+    <div class="featured-top">
+      <TierBadge tier={project.tier} />
+      {project.outcome && <span class="featured-outcome">{project.outcome}</span>}
+    </div>
+    <h3 class="featured-title">{project.title}</h3>
+    <p class="featured-description">{project.description}</p>
+    <p class="featured-techstack">
+      {project.techStack.map((t) => <span class="tech-item">{t}</span>)}
+    </p>
+    <p class="featured-more">詳細を見る →</p>
+  </article>
+</a>
+
+<style>
+  .featured-link {
+    text-decoration: none;
+    display: block;
+    height: 100%;
+  }
+
+  .featured-link:hover {
+    text-decoration: none;
+  }
+
+  .featured-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-accent);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .featured-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .featured-top {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-3);
+  }
+
+  .featured-outcome {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent-strong);
+  }
+
+  .featured-title {
+    font-size: var(--text-lg);
+    color: var(--color-title);
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: var(--space-2);
+  }
+
+  .featured-description {
+    font-size: var(--text-sm);
+    color: var(--color-body);
+    margin-bottom: var(--space-4);
+    flex-grow: 1;
+  }
+
+  .featured-techstack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    margin-bottom: var(--space-3);
+  }
+
+  .tech-item {
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    padding: 0.1rem 0.5rem;
+    border-radius: var(--radius-pill);
+  }
+
+  .featured-more {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent);
+  }
+</style>

@@ -10,6 +10,7 @@ highlights:
   - "external-write-guardによる外部書き込み保護"
   - "8つのテスト全パス"
 order: 8
+tier: "B"
 ---
 
 ## 解決した課題

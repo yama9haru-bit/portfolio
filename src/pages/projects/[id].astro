@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import CategoryNav from '../../components/CategoryNav.astro';
+import TierBadge from '../../components/TierBadge.astro';
 import { getCategorySlug } from '../../data/categories';
 
 export async function getStaticPaths() {
@@ -27,6 +28,7 @@ const categorySlug = getCategorySlug(data.category);
     <h1 class="project-title">{data.title}</h1>
 
     <div class="project-meta">
+      <TierBadge tier={data.tier} />
       <span class="meta-badge category-badge">{data.category}</span>
       <span class="meta-badge date-badge">{data.date}</span>
     </div>
@@ -75,7 +77,7 @@ const categorySlug = getCategorySlug(data.category);
   .back-link {
     display: inline-block;
     font-size: 0.9rem;
-    color: #1b5faa;
+    color: var(--color-accent);
     text-decoration: none;
     margin-bottom: 1.5rem;
   }
@@ -85,8 +87,8 @@ const categorySlug = getCategorySlug(data.category);
   }
 
   .project-title {
-    font-size: 1.6rem;
-    color: #1a1a1a;
+    font-size: var(--text-2xl);
+    color: var(--color-title);
     font-weight: 700;
     margin-bottom: 1rem;
     line-height: 1.4;
@@ -95,6 +97,7 @@ const categorySlug = getCategorySlug(data.category);
   .project-meta {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 0.5rem;
     margin-bottom: 1.5rem;
   }
@@ -102,23 +105,23 @@ const categorySlug = getCategorySlug(data.category);
   .meta-badge {
     font-size: 0.85rem;
     padding: 0.2rem 0.6rem;
-    border-radius: 3px;
+    border-radius: var(--radius-sm);
   }
 
   .category-badge {
-    background: rgba(27, 95, 170, 0.08);
-    color: #1b5faa;
+    background: var(--color-accent-soft);
+    color: var(--color-accent);
     font-weight: 500;
   }
 
   .date-badge {
-    background: #f4f4f4;
-    color: #666;
+    background: var(--color-bg-elevated);
+    color: var(--color-muted);
   }
 
   .project-description {
     font-size: 1.05rem;
-    color: #444;
+    color: var(--color-body);
     margin-bottom: 2rem;
     line-height: 1.7;
   }
@@ -129,19 +132,24 @@ const categorySlug = getCategorySlug(data.category);
 
   .detail-section h2 {
     font-size: 1.1rem;
-    color: #1a1a1a;
+    color: var(--color-title);
     font-weight: 700;
     margin-bottom: 0.5rem;
   }
 
   .detail-section p {
     font-size: 0.95rem;
-    color: #444;
+    color: var(--color-body);
     line-height: 1.7;
   }
 
   .outcome-text {
-    color: #1b5faa !important;
+    display: inline-block;
+    color: var(--color-accent-strong) !important;
+    font-weight: 700;
+    background: var(--color-accent-soft);
+    border-radius: var(--radius-sm);
+    padding: 0.15rem 0.6rem;
   }
 
   .highlights-list {
@@ -151,7 +159,7 @@ const categorySlug = getCategorySlug(data.category);
 
   .highlights-list li {
     font-size: 0.95rem;
-    color: #444;
+    color: var(--color-body);
     margin-bottom: 0.3rem;
   }
 
@@ -163,26 +171,27 @@ const categorySlug = getCategorySlug(data.category);
 
   .tech-badge {
     font-size: 0.8rem;
-    color: #666;
-    background: #f4f4f4;
+    color: var(--color-muted);
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
     padding: 0.2rem 0.6rem;
-    border-radius: 3px;
+    border-radius: var(--radius-pill);
   }
 
   .separator {
     border: none;
-    border-top: 1px solid #e8e8e8;
+    border-top: 1px solid var(--color-border);
     margin: 2rem 0;
   }
 
   .markdown-content {
-    color: #444;
+    color: var(--color-body);
     line-height: 1.7;
   }
 
   .markdown-content :global(h2) {
     font-size: 1.2rem;
-    color: #1a1a1a;
+    color: var(--color-title);
     font-weight: 700;
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
@@ -190,7 +199,7 @@ const categorySlug = getCategorySlug(data.category);
 
   .markdown-content :global(h3) {
     font-size: 1.05rem;
-    color: #1a1a1a;
+    color: var(--color-title);
     font-weight: 700;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
@@ -209,23 +218,23 @@ const categorySlug = getCategorySlug(data.category);
 
   .markdown-content :global(th),
   .markdown-content :global(td) {
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--color-border);
     padding: 0.5rem;
     font-size: 0.9rem;
     text-align: left;
   }
 
   .markdown-content :global(th) {
-    background: #f8f8f8;
+    background: var(--color-bg-elevated);
     font-weight: 700;
-    color: #1a1a1a;
+    color: var(--color-title);
   }
 
   .markdown-content :global(code) {
     font-size: 0.85rem;
-    background: #f4f4f4;
+    background: var(--color-bg-elevated);
     padding: 0.1rem 0.3rem;
-    border-radius: 3px;
+    border-radius: var(--radius-sm);
   }
 
   .markdown-content :global(ul) {

@@ -9,6 +9,7 @@ highlights:
   - "launchdによる自動復旧"
   - "障害検知と再起動"
 order: 7
+tier: "B"
 ---
 
 ## 解決した課題
