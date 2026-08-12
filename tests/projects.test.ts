@@ -2,9 +2,9 @@ import { describe, it, expect } from 'vitest';
 import { projects, type Project } from '../src/data/projects';
 
 describe('projects data structure', () => {
-  it('should export an array of 24 projects', () => {
+  it('should export an array of 25 projects', () => {
     expect(Array.isArray(projects)).toBe(true);
-    expect(projects).toHaveLength(24);
+    expect(projects).toHaveLength(25);
   });
 
   it('each project should have all required fields with correct types', () => {
@@ -85,10 +85,10 @@ describe('projects data structure', () => {
     }
   });
 
-  it('tier distribution should be exactly S=4, A=5, B=15', () => {
+  it('tier distribution should be exactly S=4, A=6, B=15', () => {
     const count = (t: Project['tier']) => projects.filter((p) => p.tier === t).length;
     expect(count('S')).toBe(4);
-    expect(count('A')).toBe(5);
+    expect(count('A')).toBe(6);
     expect(count('B')).toBe(15);
   });
 

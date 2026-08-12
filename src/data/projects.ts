@@ -392,6 +392,26 @@ export const projects: Project[] = [
     ],
     outcome: '運用中',
   },
+  {
+    id: 'C6',
+    slug: 'c6-en-clip',
+    tier: 'A',
+    title: 'en-clip（英語学習ショート動画 無人生成パイプライン）',
+    category: 'コンテンツ自動化パイプライン',
+    description:
+      '英語の既存動画から学習価値のある区間を抜き出し、二言語テロップを焼き込んだ縦型ショート動画を無人生成するパイプライン。投稿の最終判断だけは人間に残すhuman-in-the-loop設計',
+    clientValue:
+      '動画コンテンツ生成の全工程を自動化しつつ、権利・安全チェックと投稿承認は人間に残す設計を構築・運用できる',
+    techStack: ['Python', 'yt-dlp', 'faster-whisper', 'ffmpeg', 'YouTube Data API (OAuth)', 'Discord (hermes send)'],
+    date: '2026-07-30',
+    highlights: [
+      'LLM工程に決定的フォールバック(deterministic_draft.py)を実装し、モデル未設定でも最後まで動作',
+      '構造チェック(validate_clip_spec.py)+安全ガード(safety_check.py)+人間の最終一括レビューの3層設計',
+      'YouTube非公開アップロード→人間承認で公開するhuman-in-the-loopフロー',
+      'yt-dlp/faster-whisper/ffmpegはOSSでAPIキー不要、0円運用が可能な構成',
+    ],
+    outcome: '個人開発として設計・実装済み(オンデマンド運用、YouTube非公開アップロードまで自動化)',
+  },
 
   // ── AI-driven ビジネス構築 ──
   {
