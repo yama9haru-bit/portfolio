@@ -70,6 +70,26 @@ export const projects: Project[] = [
     ],
     outcome: 'GitHubリポジトリ化済み',
   },
+  {
+    id: 'P4',
+    slug: 'p4-recall-anki-pwa',
+    tier: 'A',
+    title: 'Recall - Anki準拠の個人用SRS PWA',
+    category: 'AIプロダクト開発',
+    description:
+      '資格・用語学習向けのAnki準拠間隔反復PWA。iPhoneとMacで同じコレクションをオフライン継続できる',
+    clientValue:
+      '学習アプリをFSRS・オフライン同期・インポート/バックアップまで含むプロダクト品質で一気通貫実装できる',
+    techStack: ['TypeScript', 'React 19', 'Vinext', 'Cloudflare D1/R2', 'ts-fsrs', 'Dexie', 'Playwright', 'Zod'],
+    date: '2026-08-19',
+    highlights: [
+      'FSRSによるAgain/Hard/Good/Easy評価とUndo・Suspend・Bury・Flag',
+      'IndexedDBキャッシュとoperationId付きoutboxによるオフライン作成・編集・復習の自動再送',
+      '.apkg/.colpkg/CSV読込とD1正本・R2 Mediaの完全バックアップ/復元',
+      'Playwright E2Eで学習導線・オフライン・アクセシビリティを回帰保証',
+    ],
+    outcome: '個人用プロダクトとして実装・運用。Cloudflare互換Sites上でD1/R2を正本に配置',
+  },
 
   // ── AIエージェント基盤構築 ──
   {
