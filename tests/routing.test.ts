@@ -48,8 +48,8 @@ describe('category slugs', () => {
 });
 
 describe('project routing', () => {
-  it('should have 26 projects', () => {
-    expect(projects).toHaveLength(26);
+  it('should have 28 projects', () => {
+    expect(projects).toHaveLength(28);
   });
 
   it('all project IDs should be unique', () => {
