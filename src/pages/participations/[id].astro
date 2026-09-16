@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('participations');
+  return entries.map((entry) => ({ params: { id: entry.slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const data = entry.data;
+---
+
+<Base title={`${data.title} — 参加実績 - Haruto Yamao`}>
+  <article class="participation-detail">
+    <a class="back-link" href="/portfolio/#participation">← 参加実績</a>
+    <p class="eyebrow">ハッカソン参加 · {data.period}</p>
+    <h1>{data.title}</h1>
+    <p class="description">{data.description}</p>
+    <div class="markdown-content"><Content /></div>
+  </article>
+</Base>
+
+<style>
+  .participation-detail { max-width: 760px; margin: 0 auto; }
+  .back-link { display: inline-block; margin-bottom: var(--space-6); }
+  .eyebrow { color: var(--color-muted); font-size: var(--text-sm); margin-bottom: var(--space-2); }
+  h1 { font-size: var(--text-2xl); line-height: 1.4; margin-bottom: var(--space-5); }
+  .description { font-size: var(--text-lg); margin-bottom: var(--space-7); }
+  .markdown-content :global(h2) { margin: var(--space-6) 0 var(--space-3); }
+  .markdown-content :global(p) { margin-bottom: var(--space-4); }
+  .markdown-content :global(ul) { padding-left: 1.5rem; margin-bottom: var(--space-5); }
+  .markdown-content :global(li) { margin-bottom: var(--space-2); }
+  .markdown-content :global(a) { overflow-wrap: anywhere; }
+</style>

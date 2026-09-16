@@ -91,58 +91,6 @@ export const projects: Project[] = [
     outcome: '個人用プロダクトとして実装・運用。Cloudflare互換Sites上でD1/R2を正本に配置',
   },
 
-  {
-    "id": "P5",
-    "slug": "p5-codex-hackathon",
-    "tier": "A",
-    "title": "Codex 開発祭 2026参加 — Unity言語探索ゲームの共同制作",
-    "category": "AIプロダクト開発",
-    "description": "Codex 開発祭 2026で言語探索パズルゲームの共同制作に参加し、3Dロボット、地形モデル、動作スプライトを制作しました",
-    "clientValue": "生成AIと3D制作ツールを使い、ゲーム素材の制作からUnity向けの取り込み補助、GitHubでの共同開発まで対応できます",
-    "techStack": [
-      "Unity",
-      "C#",
-      "Blender",
-      "Tripo",
-      "生成AI",
-      "Git LFS"
-    ],
-    "date": "2026-09-15",
-    "highlights": [
-      "3DロボットとUnityのPrefab作成ツールを提供（PR #1マージ済み）",
-      "Blenderで18点の地形モデルを制作し、FBXとPrefab生成ツールを提出",
-      "7シーン・21ポーズと単独キャラクター2枚のスプライト素材を制作",
-      "制作元データ・生成プロンプト・検証記録を添え、Git LFSとPRで共有"
-    ],
-    "outcome": "2026年9月15日のCodex 開発祭 2026に参加しました。ロボット素材のPRはマージ済みで、地形・スプライト素材もPRで提出しています",
-    "externalUrl": "https://github.com/Atsu-Taiyo/codex-hackathon0915"
-  },
-
-  {
-    "id": "P6",
-    "slug": "p6-mercari-hackathon",
-    "tier": "A",
-    "title": "Mercari Hackathon参加 — 推しポートの共同制作",
-    "category": "AIプロダクト開発",
-    "description": "Mercari Hackathonに参加し、推し活SNS『推しポート』のデモアプリをチームで共同制作しました",
-    "clientValue": "ユーザーの行動からサービスの企画を考え、チームでデモアプリに落とし込めます",
-    "techStack": [
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "Node.js",
-      "Gemini"
-    ],
-    "date": "2026-09-01",
-    "highlights": [
-      "Mercari Hack Team Cとしてハッカソンに参加",
-      "推し活グッズの投稿と資産一覧をつなぐデモアプリを共同制作",
-      "重複グッズから出品モックへ進む体験をプロトタイプで表現"
-    ],
-    "outcome": "Mercari Hackathonに参加し、チームで『推しポート』のプロトタイプを制作",
-    "externalUrl": "https://github.com/ayakatw/mercari_hack_c"
-  },
-
   // ── AIエージェント基盤構築 ──
   {
     id: 'I1',

@@ -1,18 +1,15 @@
 ---
-title: "Codex 開発祭 2026参加 — Unity言語探索ゲームの共同制作"
-category: "AIプロダクト開発"
+title: "Codex 開発祭 2026"
 date: "2026-09-15"
 techStack: ["Unity", "C#", "Blender", "Tripo", "生成AI", "Git LFS"]
 description: "Codex 開発祭 2026で言語探索パズルゲームの共同制作に参加し、3Dロボット、地形モデル、動作スプライトを制作しました"
-clientValue: "生成AIと3D制作ツールを使い、ゲーム素材の制作からUnity向けの取り込み補助、GitHubでの共同開発まで対応できます"
 highlights:
   - "3DロボットとUnityのPrefab作成ツールを提供（PR #1マージ済み）"
   - "Blenderで18点の地形モデルを制作し、FBXとPrefab生成ツールを提出"
   - "7シーン・21ポーズと単独キャラクター2枚のスプライト素材を制作"
   - "制作元データ・生成プロンプト・検証記録を添え、Git LFSとPRで共有"
 outcome: "2026年9月15日のCodex 開発祭 2026に参加しました。ロボット素材のPRはマージ済みで、地形・スプライト素材もPRで提出しています"
-order: 27
-tier: "A"
+period: "2026.09.15"
 ---
 
 ## プロジェクト概要

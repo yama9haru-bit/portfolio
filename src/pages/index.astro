@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import FeaturedCard from '../components/FeaturedCard.astro';
@@ -15,6 +16,8 @@ const valueProps = [
   'SaaS社内AI-DX（議事録インサイト抽出・リマインダーボット等）',
   'AI-native営業システム（企画立案→相談→受注まで運用中）',
 ];
+
+const participations = (await getCollection('participations')).sort((a, b) => b.data.date.localeCompare(a.data.date));
 
 const featured = projects.filter((p) => p.tier === 'S');
 
@@ -56,9 +59,53 @@ const projectsByCategory = categories.map((cat) => ({
       </section>
     )
   ))}
+
+  <section class="participation-section" id="participation" aria-labelledby="participation-title">
+    <p class="section-eyebrow">Participation</p>
+    <h2 class="section-title" id="participation-title">参加実績</h2>
+    <div class="participation-grid">
+      {participations.map((entry) => (
+        <a class="participation-card" href={`/portfolio/participations/${entry.slug}/`}>
+          <div class="participation-meta"><span>ハッカソン参加</span><span>{entry.data.period}</span></div>
+          <h3>{entry.data.title}</h3>
+          <p>{entry.data.description}</p>
+          <span class="participation-more">参加内容を見る →</span>
+        </a>
+      ))}
+    </div>
+  </section>
 </Base>
 
 <style>
+  .participation-section {
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-7);
+    padding-top: var(--space-7);
+    border-top: 1px solid var(--color-border);
+    scroll-margin-top: var(--space-6);
+  }
+  .participation-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5);
+  }
+  .participation-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-5);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-bg-elevated);
+    color: var(--color-body);
+    transition: border-color var(--transition-base);
+  }
+  .participation-card:hover { border-color: var(--color-accent); text-decoration: none; }
+  .participation-card:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+  .participation-meta { display: flex; justify-content: space-between; gap: var(--space-3); font-size: var(--text-sm); color: var(--color-muted); }
+  .participation-more { margin-top: auto; padding-top: var(--space-2); color: var(--color-accent); font-weight: 500; }
+  @media (max-width: 640px) { .participation-grid { grid-template-columns: 1fr; } }
+
   .featured-section {
     margin-bottom: var(--space-7);
   }

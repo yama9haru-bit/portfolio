@@ -26,4 +26,17 @@ const projects = defineCollection({
   }),
 });
 
-export const collections = { projects };
+const participations = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    date: z.string(),
+    period: z.string(),
+    techStack: z.array(z.string()),
+    description: z.string(),
+    highlights: z.array(z.string()),
+    outcome: z.string().optional(),
+  }),
+});
+
+export const collections = { projects, participations };

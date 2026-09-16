@@ -30,6 +30,7 @@ const { title = 'Haruto Yamao - AI × Automation Engineer' } = Astro.props;
         <nav class="header-nav">
           <a href="/portfolio/">Home</a>
           <a href="/portfolio/about">About</a>
+          <a href="/portfolio/#participation">参加実績</a>
           <a href="/portfolio/services">Services</a>
           <a href="https://portfolio-site-beta-pink-87.vercel.app" target="_blank" rel="noopener noreferrer">Profile</a>
         </nav>
@@ -79,6 +80,7 @@ const { title = 'Haruto Yamao - AI × Automation Engineer' } = Astro.props;
       }
 
       .header-nav {
+        flex-wrap: wrap;
         margin-top: 0.75rem;
         display: flex;
         gap: 1.5rem;

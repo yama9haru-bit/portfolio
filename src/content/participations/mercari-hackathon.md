@@ -1,17 +1,14 @@
 ---
-title: "Mercari Hackathon参加 — 推しポートの共同制作"
-category: "AIプロダクト開発"
+title: "Mercari Hackathon"
 date: "2026-09-01"
 techStack: ["JavaScript", "HTML", "CSS", "Node.js", "Gemini"]
 description: "Mercari Hackathonに参加し、推し活SNS『推しポート』のデモアプリをチームで共同制作しました"
-clientValue: "ユーザーの行動からサービスの企画を考え、チームでデモアプリに落とし込めます"
 highlights:
   - "Mercari Hack Team Cとしてハッカソンに参加"
   - "推し活グッズの投稿と資産一覧をつなぐデモアプリを共同制作"
   - "重複グッズから出品モックへ進む体験をプロトタイプで表現"
 outcome: "Mercari Hackathonに参加し、チームで『推しポート』のプロトタイプを制作"
-order: 28
-tier: "A"
+period: "2026"
 ---
 
 ## 参加実績
